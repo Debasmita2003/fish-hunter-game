@@ -1,0 +1,268 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* =========================
+   OCEAN
+========================= */
+
+.ocean {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("./assets/ocean.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================
+   HUD
+========================= */
+
+.hud {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 20px;
+
+  z-index: 30;
+}
+
+.score,
+.time,
+.highscore,
+.pause-btn {
+  background: rgba(255, 255, 255, 0.18);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(8px);
+
+  padding: 12px 18px;
+
+  border-radius: 14px;
+
+  color: white;
+
+  font-weight: bold;
+
+  min-width: 120px;
+
+  text-align: center;
+}
+
+.pause-btn {
+  cursor: pointer;
+  border: none;
+}
+
+/* =========================
+   FISH
+========================= */
+
+.fish {
+  position: absolute;
+
+  user-select: none;
+
+  pointer-events: none;
+
+  transition: transform 0.2s ease;
+}
+
+/* =========================
+   BUBBLES
+========================= */
+
+.bubble {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  border: 2px solid rgba(255, 255, 255, 0.5);
+
+  animation: riseBubble 6s linear forwards;
+
+  pointer-events: none;
+}
+
+@keyframes riseBubble {
+  from {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   SEAWEED
+========================= */
+
+.seaweed {
+  position: absolute;
+
+  bottom: 110px;
+
+  height: auto;
+
+  transform-origin: bottom center;
+
+  animation: sway 4s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(-3deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+/* =========================
+   OCEAN FLOOR
+========================= */
+
+
+
+/* =========================
+   START SCREEN
+========================= */
+
+.start-screen {
+  width: 100vw;
+  height: 100vh;
+
+  background: linear-gradient(
+    to bottom,
+    #87ceeb,
+    #1f7ab8
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.start-title {
+  font-size: 4rem;
+  margin-bottom: 25px;
+
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.hero-image {
+  width: 260px;
+  height: auto;
+
+  margin-bottom: 20px;
+
+  animation: floatHero 3s ease-in-out infinite;
+}
+
+.start-description {
+  font-size: 1.2rem;
+
+  margin-bottom: 15px;
+}
+
+.start-btn {
+  margin-top: 20px;
+
+  padding: 16px 32px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 1.1rem;
+
+  font-weight: bold;
+
+  transition: 0.25s;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes floatHero {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .start-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-image {
+    width: 180px;
+  }
+
+  .hud {
+    gap: 10px;
+  }
+
+  .score,
+  .time,
+  .highscore,
+  .pause-btn {
+    min-width: 90px;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
