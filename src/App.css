@@ -266,3 +266,33 @@ body {
     font-size: 0.9rem;
   }
 }
+.hook {
+  position: absolute;
+  width: 90px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.rope {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  background: #f5f5f5;
+  z-index: 19;
+}
+
+.game-over {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.8);
+
+  color: white;
+
+  gap: 20px;
+}
