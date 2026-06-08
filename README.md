@@ -7,7 +7,7 @@ An interactive browser-based fishing game built with **React.js** where players 
 Fish Hunter places players in a vibrant underwater world filled with animated marine life. Each creature has unique movement patterns, speeds, and point values, making every catch a strategic decision.
 
 The objective is simple:
-
+- Catch the fishes within the given time limit.
 - Catch valuable fish to earn points.
 - Avoid sharks at all costs.
 - Beat your personal high score before the timer runs out.
