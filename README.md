@@ -48,6 +48,7 @@ Each creature behaves differently:
 - Swaying seaweed
 - Multiple underwater depth layers
 - Smooth fish movement and direction switching
+- Movement of the hook
 
 ---
 
