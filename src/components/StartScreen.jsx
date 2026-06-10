@@ -1,36 +1,36 @@
-import heroImg from "../assets/hero.png";
+import bgImage from "../assets/little_fisher.png";
 
 export default function StartScreen({
   onStart,
   highScore,
 }) {
   return (
-    <div className="start-screen">
-      <h1 className="start-title">
-        🎣 Fish Hunter
-      </h1>
+    <div
+      className="start-screen"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
+    >
+      <div className="content">
+        <h1 className="game-title">
+          🎣 Fish Hunter
+        </h1>
 
-      <img
-        src={heroImg}
-        alt="hero"
-        className="hero-image"
-      />
+        <p className="start-description">
+          Catch fish, avoid sharks and beat your high score.
+        </p>
 
-      <p className="start-description">
-        Catch fish, avoid sharks and
-        beat your high score.
-      </p>
+        <div className="score-card">
+          🏆 High Score: {highScore}
+        </div>
 
-      <h2>
-        High Score: {highScore}
-      </h2>
-
-      <button
-        className="start-btn"
-        onClick={onStart}
-      >
-        Start Fishing
-      </button>
+        <button
+          className="start-btn"
+          onClick={onStart}
+        >
+          Start Fishing
+        </button>
+      </div>
     </div>
   );
 }
