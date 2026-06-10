@@ -164,22 +164,244 @@ body {
    START SCREEN
 ========================= */
 
-.start-screen {
-  width: 100vw;
-  height: 100vh;
+/* =========================
+   Background
+========================= */
 
-  background: linear-gradient(
-    to bottom,
-    #87ceeb,
-    #1f7ab8
-  );
+.start-screen {
+  width: 100%;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   Content
+========================= */
+
+.content {
+  width: 100%;
+  max-width: 700px;
+
+  text-align: center;
+}
+
+/* =========================
+   Title
+========================= */
+
+.game-title {
+  font-size: clamp(3rem, 4vw, 5.5rem);
+
+  font-weight: 900;
 
   color: white;
+
+   margin-top: -20px;
+
+  margin-bottom: 1rem;
+
+  text-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   Description
+========================= */
+
+.start-description {
+  font-size: clamp(1rem, 2.8vw, 1.5rem);
+
+  text-align: center;
+
+  color: white;
+
+  line-height: 1.6;
+
+  max-width: 500px;
+
+  margin: 0 auto 2rem;
+
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   Glass High Score
+========================= */
+
+.score-card {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  overflow: hidden;
+
+  padding: 0.8rem 2rem;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  background: rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  color: white;
+
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+
+  font-weight: 700;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   Glass Button
+========================= */
+
+.start-btn {
+  top: 45px;
+  position: relative;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  padding: 1rem 3rem;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  background: rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  color: white;
+
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+
+  font-weight: 700;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+
+.start-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  background: rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    0 12px 40px rgba(31, 38, 135, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.start-btn:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Shine Effect
+========================= */
+
+.start-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+
+  transform: skewX(-25deg);
+
+  transition: 0.8s;
+}
+
+.start-btn:hover::before {
+  left: 150%;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 768px) {
+  .start-screen {
+    padding-top: 2rem;
+  }
+
+  .content {
+    padding: 0 1rem;
+  }
+
+  .score-card {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 1.5rem;
+  }
+
+  .start-btn {
+    width: min(300px, 90%);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-title {
+    font-size: 2.8rem;
+  }
+
+  .start-description {
+    font-size: 1rem;
+  }
+
+  .score-card {
+    padding: 0.9rem 1.3rem;
+  }
+
+  .start-btn {
+    padding: 0.9rem 2rem;
+  }
 }
 
 .start-title {
