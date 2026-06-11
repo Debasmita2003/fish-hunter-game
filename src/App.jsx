@@ -317,19 +317,19 @@ function App() {
       ))}
 
       <Seaweed
-        left="0%"
+        left="20%"
         width="220px"
         zIndex={6}
       />
 
       <Seaweed
-        left="80%"
+        left="69%"
         width="220px"
         zIndex={5}
       />
 
       <Seaweed
-        left="65%"
+        left="55%"
         width="120px"
         zIndex={4}
       />
