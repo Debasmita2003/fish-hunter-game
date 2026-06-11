@@ -518,3 +518,30 @@ body {
 
   gap: 20px;
 }
+.exit-screen {
+  width: 100vw;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+}
+
+.exit-fisher {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+
+  width: 350px;
+}
+
+.exit-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
