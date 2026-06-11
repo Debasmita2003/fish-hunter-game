@@ -9,12 +9,29 @@ import Seaweed from "./components/Seaweed";
 import HUD from "./components/HUD";
 import Hook from "./components/Hook";
 import StartScreen from "./components/StartScreen";
+import ExitScreen from "./components/ExitScreen";
 
 function App() {
   // =====================
   // STATES
   // =====================
 
+  const [fishPositions, setFishPositions] = useState({});
+
+const updateFishPosition = (
+  fishId,
+  x,
+  y
+) => {
+  setFishPositions((prev) => ({
+    ...prev,
+    [fishId]: {
+      x,
+      y,
+    },
+  }));
+};
+  
   const [started, setStarted] = useState(false);
 
   const [score, setScore] = useState(0);
@@ -252,24 +269,15 @@ function App() {
   // =====================
 
   if (gameOver) {
-    return (
-      <div className="game-over">
-        <h1>Game Over</h1>
-
-        <h2>
-          Final Score: {score}
-        </h2>
-
-        <button
-          onClick={() =>
-            window.location.reload()
-          }
-        >
-          Play Again
-        </button>
-      </div>
-    );
-  }
+  return (
+    <ExitScreen
+      score={score}
+      onRestart={() =>
+        window.location.reload()
+      }
+    />
+  );
+}
 
   // =====================
   // MAIN RETURN
@@ -317,19 +325,19 @@ function App() {
       ))}
 
       <Seaweed
-        left="20%"
+        left="0%"
         width="220px"
         zIndex={6}
       />
 
       <Seaweed
-        left="69%"
+        left="80%"
         width="220px"
         zIndex={5}
       />
 
       <Seaweed
-        left="55%"
+        left="65%"
         width="120px"
         zIndex={4}
       />
