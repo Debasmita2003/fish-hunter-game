@@ -29,7 +29,7 @@ body {
   overflow: hidden;
 
   background-image: url("./assets/ocean.png");
-  background-size: 100% 100%;
+  background-size: cover; /* crops instead of stretching */
   background-position: center;
   background-repeat: no-repeat;
 }
