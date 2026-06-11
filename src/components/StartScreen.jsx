@@ -13,7 +13,7 @@ export default function StartScreen({
     >
       <div className="content">
         <h1 className="game-title">
-          🎣 Fish Hunter
+          Fish Hunter
         </h1>
 
         <p className="start-description">
@@ -21,7 +21,7 @@ export default function StartScreen({
         </p>
 
         <div className="score-card">
-          🏆 High Score: {highScore}
+          High Score: {highScore}
         </div>
 
         <button
