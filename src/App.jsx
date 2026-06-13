@@ -68,21 +68,34 @@ const updateFishPosition = (
   // =====================
 
   const handleCatch = (fish) => {
-    if (fish.id === "shark") {
-      setGameOver(true);
-      return;
-    }
+  // Already caught
+  if (
+    caughtFish.includes(fish.id)
+  ) {
+    return;
+  }
 
-    setScore((prev) => prev + fish.points);
+  // Shark = Game Over
+  if (fish.id === "shark") {
+    setGameOver(true);
+    return;
+  }
 
-    setCaughtFish((prev) => [
-      ...prev,
-      fish.id,
-    ]);
+  // Add points
+  setScore((prev) =>
+    prev + fish.points
+  );
 
-    setIsDropping(false);
-    setIsRising(true);
-  };
+  // Remove fish permanently
+  setCaughtFish((prev) => [
+    ...prev,
+    fish.id,
+  ]);
+
+  // Bring hook back up
+  setIsDropping(false);
+  setIsRising(true);
+};
 
   // =====================
   // TIMER
@@ -122,6 +135,10 @@ const updateFishPosition = (
       );
     }
   }, [score]);
+
+  useEffect(() => {
+  console.log(fishPositions);
+}, [fishPositions]);
 
   // =====================
   // KEYBOARD CONTROLS
@@ -190,6 +207,42 @@ const updateFishPosition = (
     return () => clearInterval(interval);
   }, [isDropping]);
 
+  useEffect(() => {
+  if (!isDropping) return;
+
+  const hookWidth = 80;
+  const hookHeightSize = 80;
+
+  Object.entries(fishPositions).forEach(
+    ([fishId, fishPos]) => {
+      const fish = fishConfig.find(
+        (f) => f.id === fishId
+      );
+
+      if (!fish) return;
+
+      const collision =
+        hookX <
+          fishPos.x + fish.width &&
+        hookX + hookWidth >
+          fishPos.x &&
+        hookY <
+          fishPos.y + fish.width &&
+        hookY + hookHeightSize >
+          fishPos.y;
+
+      if (collision) {
+        handleCatch(fish);
+      }
+    }
+  );
+}, [
+  hookX,
+  hookY,
+  fishPositions,
+  isDropping,
+]);
+
   // =====================
   // HOOK RISE
   // =====================
@@ -215,6 +268,42 @@ const updateFishPosition = (
 
     return () => clearInterval(interval);
   }, [isRising]);
+
+  useEffect(() => {
+  if (!isDropping) return;
+
+  const hookWidth = 80;
+  const hookHeightSize = 80;
+
+  Object.entries(fishPositions).forEach(
+    ([fishId, fishPos]) => {
+      const fish = fishConfig.find(
+        (f) => f.id === fishId
+      );
+
+      if (!fish) return;
+
+      const collision =
+        hookX <
+          fishPos.x + fish.width &&
+        hookX + hookWidth >
+          fishPos.x &&
+        hookY <
+          fishPos.y + fish.width &&
+        hookY + hookHeightSize >
+          fishPos.y;
+
+      if (collision) {
+        handleCatch(fish);
+      }
+    }
+  );
+}, [
+  hookX,
+  hookY,
+  fishPositions,
+  isDropping,
+]);
 
   // =====================
   // BUBBLES
@@ -298,22 +387,17 @@ const updateFishPosition = (
       />
 
       {fishConfig
-        .filter(
-          (fish) =>
-            !caughtFish.includes(fish.id)
-        )
-        .map((fish) => (
-          <Fish
-            key={fish.id}
-            fish={{
-              ...fish,
-              direction:
-                Math.random() > 0.5
-                  ? "left"
-                  : "right",
-            }}
-          />
-        ))}
+  .filter(
+    (fish) =>
+      !caughtFish.includes(fish.id)
+  )
+  .map((fish) => (
+    <Fish
+      key={fish.id}
+      fish={fish}
+      onPositionUpdate={updateFishPosition}
+    />
+  ))}
 
       {bubbles.map((bubble) => (
         <Bubble
