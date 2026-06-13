@@ -32,6 +32,9 @@ const updateFishPosition = (
   }));
 };
   
+  const [paused, setPaused] =
+  useState(false);
+  
   const [started, setStarted] = useState(false);
 
   const [score, setScore] = useState(0);
@@ -102,7 +105,7 @@ const updateFishPosition = (
   // =====================
 
   useEffect(() => {
-    if (!started || gameOver) return;
+    if (!started || gameOver || paused) return;
 
     const interval = setInterval(() => {
       setTime((prev) => {
@@ -116,7 +119,7 @@ const updateFishPosition = (
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [started, gameOver]);
+  }, [started, gameOver, paused]);
 
   // =====================
   // HIGH SCORE
@@ -146,6 +149,7 @@ const updateFishPosition = (
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (paused) return;
       if (isDropping || isRising) return;
 
       if (e.key === "ArrowLeft") {
@@ -167,7 +171,9 @@ const updateFishPosition = (
         e.key === "ArrowDown" ||
         e.key === "Enter"
       ) {
-        setIsDropping(true);
+        if (!paused) {
+          setIsDropping(true);
+        }
       }
     };
 
@@ -310,7 +316,11 @@ const updateFishPosition = (
   // =====================
 
   useEffect(() => {
-    if (!started) return;
+    if (
+  !started ||
+  paused
+)
+  return;
 
     const interval = setInterval(() => {
       const bubble = {
@@ -378,6 +388,8 @@ const updateFishPosition = (
         score={score}
         highScore={highScore}
         time={time}
+        paused={paused}
+        setPaused={setPaused}
       />
 
       <Hook
@@ -393,10 +405,13 @@ const updateFishPosition = (
   )
   .map((fish) => (
     <Fish
-      key={fish.id}
-      fish={fish}
-      onPositionUpdate={updateFishPosition}
-    />
+  key={fish.id}
+  fish={fish}
+  paused={paused}
+  onPositionUpdate={
+    updateFishPosition
+  }
+/>
   ))}
 
       {bubbles.map((bubble) => (
@@ -425,7 +440,7 @@ const updateFishPosition = (
         width="120px"
         zIndex={4}
       />
-
+      
       <div className="ocean-floor" />
     </div>
   );

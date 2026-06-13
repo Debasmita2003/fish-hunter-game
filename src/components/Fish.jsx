@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export default function Fish({
   fish,
   onPositionUpdate,
+  paused,
 }) {
   const [direction, setDirection] = useState(
     fish.startDirection || "right"
@@ -18,6 +19,7 @@ export default function Fish({
 
   useEffect(() => {
     const interval = setInterval(() => {
+      if (paused) return;
       const t = Date.now() / 1000;
 
       let currentY = fish.laneY;
