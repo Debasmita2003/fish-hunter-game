@@ -612,3 +612,12 @@ body {
 .restart-btn:hover {
   transform: scale(1.08);
 }
+.caught-fish {
+  position: absolute;
+
+  z-index: 25;
+
+  pointer-events: none;
+
+  transition: top 0.1s linear;
+}

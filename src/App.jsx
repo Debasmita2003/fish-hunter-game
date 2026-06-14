@@ -31,7 +31,8 @@ const updateFishPosition = (
     },
   }));
 };
-  
+  const [caughtFishData, setCaughtFishData] =
+  useState(null);
   const [paused, setPaused] =
   useState(false);
   
@@ -85,19 +86,10 @@ const updateFishPosition = (
   }
 
   // Add points
-  setScore((prev) =>
-    prev + fish.points
-  );
+  setCaughtFishData(fish);
 
-  // Remove fish permanently
-  setCaughtFish((prev) => [
-    ...prev,
-    fish.id,
-  ]);
-
-  // Bring hook back up
-  setIsDropping(false);
-  setIsRising(true);
+setIsDropping(false);
+setIsRising(true);
 };
 
   // =====================
@@ -259,9 +251,28 @@ const updateFishPosition = (
     const interval = setInterval(() => {
       setHookY((prev) => {
         if (prev <= 80) {
-          setIsRising(false);
-          setHookHeight(80);
-          return 80;
+          if (prev <= 80) {
+  setIsRising(false);
+
+  setHookHeight(80);
+
+  if (caughtFishData) {
+    setScore(
+      (prevScore) =>
+        prevScore +
+        caughtFishData.points
+    );
+
+    setCaughtFish((prevFish) => [
+      ...prevFish,
+      caughtFishData.id,
+    ]);
+
+    setCaughtFishData(null);
+  }
+
+  return 80;
+}
         }
 
         return prev - 12;
@@ -397,12 +408,30 @@ const updateFishPosition = (
         hookY={hookY}
         hookHeight={hookHeight}
       />
+      {caughtFishData && (
+  <img
+    src={caughtFishData.image}
+    alt="caught fish"
+    className="caught-fish"
+    style={{
+      left: hookX - 20,
+      top: hookY + 50,
+      width:
+        caughtFishData.width *
+        0.8,
+    }}
+  />
+)}
 
       {fishConfig
   .filter(
-    (fish) =>
-      !caughtFish.includes(fish.id)
-  )
+  (fish) =>
+    !caughtFish.includes(
+      fish.id
+    ) &&
+    fish.id !==
+      caughtFishData?.id
+)
   .map((fish) => (
     <Fish
   key={fish.id}
