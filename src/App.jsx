@@ -10,11 +10,15 @@ import HUD from "./components/HUD";
 import Hook from "./components/Hook";
 import StartScreen from "./components/StartScreen";
 import ExitScreen from "./components/ExitScreen";
-
+import Treasure from "./components/Treasure";
 function App() {
   // =====================
   // STATES
   // =====================
+const [treasure, setTreasure] = useState({
+  x: Math.random() * (window.innerWidth - 150),
+  y: window.innerHeight - 220,
+});
 
   const [fishPositions, setFishPositions] = useState({});
 
@@ -91,7 +95,25 @@ const updateFishPosition = (
 setIsDropping(false);
 setIsRising(true);
 };
+// treasure logic
+useEffect(() => {
+  if (!started) return;
 
+  const interval = setInterval(() => {
+    if (treasure) return;
+
+    setTreasure({
+      x:
+        Math.random() *
+        (window.innerWidth - 200),
+      y:
+        window.innerHeight - 220,
+    });
+  }, 25000);
+
+  return () =>
+    clearInterval(interval);
+}, [started, treasure]);
   // =====================
   // TIMER
   // =====================
@@ -210,7 +232,30 @@ setIsRising(true);
 
   const hookWidth = 80;
   const hookHeightSize = 80;
+// TREASURE COLLISION
+  if (treasure) {
+    const collision =
+      hookX < treasure.x + 120 &&
+      hookX + hookWidth > treasure.x &&
+      hookY < treasure.y + 120 &&
+      hookY + hookHeightSize > treasure.y;
 
+    if (collision) {
+      const reward =
+        Math.random() < 0.1
+          ? 500
+          : Math.random() < 0.4
+          ? 250
+          : 100;
+
+      setScore((prev) => prev + reward);
+
+      setTreasure(null);
+
+      console.log("Treasure collected!");
+    }
+  }
+  // FISH COLLISION
   Object.entries(fishPositions).forEach(
     ([fishId, fishPos]) => {
       const fish = fishConfig.find(
@@ -408,6 +453,12 @@ setIsRising(true);
         hookY={hookY}
         hookHeight={hookHeight}
       />
+      {treasure && (
+  <Treasure
+    x={treasure.x}
+    y={treasure.y}
+  />
+)}
       {caughtFishData && (
   <img
     src={caughtFishData.image}
