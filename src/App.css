@@ -620,4 +620,32 @@ body {
   pointer-events: none;
 
   transition: top 0.1s linear;
+}.treasure {
+  position: absolute;
+
+  width: 120px;
+
+  z-index: 8;
+
+  animation:
+    treasureFloat 2s ease-in-out infinite;
+}
+
+@keyframes treasureFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}.treasure {
+  position: absolute;
+  width: 120px;
+  z-index: 20;
+  transition: left 1.5s ease;
 }
