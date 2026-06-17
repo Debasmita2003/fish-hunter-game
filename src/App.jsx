@@ -114,6 +114,35 @@ useEffect(() => {
   return () =>
     clearInterval(interval);
 }, [started, treasure]);
+const moveLeft = () => {
+  if (isDropping || isRising) return;
+
+  setHookX((prev) =>
+    Math.max(20, prev - 40)
+  );
+};
+
+const moveRight = () => {
+  if (isDropping || isRising) return;
+
+  setHookX((prev) =>
+    Math.min(
+      window.innerWidth - 80,
+      prev + 40
+    )
+  );
+};
+
+const dropHook = () => {
+  if (
+    isDropping ||
+    isRising ||
+    paused
+  )
+    return;
+
+  setIsDropping(true);
+};
   // =====================
   // TIMER
   // =====================
@@ -439,6 +468,7 @@ useEffect(() => {
   // =====================
 
   return (
+    
     <div className="ocean">
       <HUD
         score={score}
@@ -520,7 +550,19 @@ useEffect(() => {
         width="120px"
         zIndex={4}
       />
-      
+      <div className="mobile-controls">
+  <button onClick={moveLeft}>
+    ⬅️
+  </button>
+
+  <button onClick={dropHook}>
+    🎣
+  </button>
+
+  <button onClick={moveRight}>
+    ➡️
+  </button>
+</div>
       <div className="ocean-floor" />
     </div>
   );
