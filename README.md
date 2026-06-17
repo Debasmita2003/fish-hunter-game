@@ -13,6 +13,7 @@ Each creature has its own speed, movement pattern, and point value, making every
 ### Your Mission
 
 - Catch valuable fish before time runs out.
+- Collect the treasure to earn more points.
 - Earn as many points as possible.
 - Avoid sharks at all costs.
 - Beat your personal high score.
