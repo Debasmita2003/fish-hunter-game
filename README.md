@@ -45,6 +45,9 @@ Each creature has its own speed, movement pattern, and point value, making every
 - Shark collision game-over system
 - Ambient ocean sound effects
 - Responsive gameplay experience
+- Treasure Chest Bonus Rewards
+- Fish Carry Animation During Hook Retract
+- Mobile Controls 
 
 ---
 
