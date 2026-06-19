@@ -155,6 +155,18 @@ The game includes immersive audio:
 
 ---
 
+Controls
+
+### Mobile Controls
+
+| Button | Action |
+|----------|---------|
+| ⬅️ | Move Left |
+| 🎣 | Drop Hook |
+| ➡️ | Move Right |
+
+---
+
 ## 🛠 Built With
 
 - React.js
