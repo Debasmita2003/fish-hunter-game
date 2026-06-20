@@ -151,6 +151,7 @@ The game includes immersive audio:
 - Game Over Screen
 - Local Storage Persistence
 - Animated Catch System
+- Sound Effects Integration
 
 ---
 
