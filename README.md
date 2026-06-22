@@ -138,6 +138,7 @@ The game includes immersive audio:
 | Catch Goldfish | +100 |
 | Catch Seahorse | +50 |
 | Catch Octopus | +75 |
+| Catch Treasure chest |
 | Catch Shark | Game Over |
 
 ---
