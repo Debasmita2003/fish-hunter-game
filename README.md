@@ -145,7 +145,8 @@ The game includes immersive audio:
 
 ## ⏱ Game Features
 
-- High Score Tracking
+- High Score Showing
+- Score Tracking
 - Countdown Timer
 - Pause / Resume System
 - Start Screen
