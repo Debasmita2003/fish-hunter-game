@@ -299,7 +299,7 @@ _Add screenshot here_
 
 ### Game Over Screen
 
-![Project Screenshot](assets/Game_Over_Screen.png)
+![Project Screenshot](./src/assets/Game_Over_Screen.png)
 
 ---
 
