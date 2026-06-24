@@ -293,10 +293,6 @@ Play the game here:
 
 ![Project Screenshot](./src/assets/Gameplay.png)
 
-### Catch Animation
-
-_Add screenshot here_
-
 ### Game Over Screen
 
 ![Project Screenshot](./src/assets/Game_Over_Screen.png)
