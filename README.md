@@ -291,7 +291,7 @@ Play the game here:
 
 ### Gameplay
 
-_Add screenshot here_
+![Project Screenshot](./src/assets/Gameplay.png)
 
 ### Catch Animation
 
