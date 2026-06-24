@@ -287,7 +287,7 @@ Play the game here:
 
 ### Start Screen
 
-_Add screenshot here_
+![Project Screenshot](./src/assets/Start_Screen.png)
 
 ### Gameplay
 
