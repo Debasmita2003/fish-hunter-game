@@ -273,7 +273,6 @@ Play the game here:
 - Mobile touch controls
 - Combo scoring system
 - Special bonus fish
-- Multiple difficulty levels
 - Ocean theme variations
 - Online leaderboard
 - Achievement badges
