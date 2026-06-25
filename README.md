@@ -271,7 +271,6 @@ Play the game here:
 ## 🎯 Future Improvements
 
 - Mobile touch controls
-- Combo scoring system
 - Special bonus fish
 - Ocean theme variations
 - Online leaderboard
