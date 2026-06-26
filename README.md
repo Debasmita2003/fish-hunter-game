@@ -204,6 +204,7 @@ src/
 │   ├── octopus.png
 │   ├── seahorse.png
 |   ├── turtle.png
+|   ├── butterflyfish.png
 │   ├── seaweed.png
 │   └── shark.png
 │
