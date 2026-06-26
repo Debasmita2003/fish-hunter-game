@@ -273,7 +273,6 @@ Play the game here:
 ## 🎯 Future Improvements
 
 - Mobile touch controls
-- Special bonus fish
 - Ocean theme variations
 - Online leaderboard
 - Achievement badges
