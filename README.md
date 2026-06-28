@@ -62,7 +62,7 @@ Each creature behaves differently and rewards different points.
 | 🐟 Goldfish | Zigzag Motion | +100 |
 | 🌿 Seahorse | Vertical Drift | +50 |
 | 🐙 Octopus | Random Wander | +75 |
-| 🐙 Butterflyfish | Random Wander | +75 |
+| 🐠 Butterflyfish | Random Wander | +75 |
 | 🦈 Shark | Patrol Movement | Game Over |
 
 ---
