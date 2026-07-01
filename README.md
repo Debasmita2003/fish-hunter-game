@@ -80,6 +80,7 @@ The gameplay loop is simple but engaging:
 6. Points are awarded once the fish reaches the surface.
 7. The fish disappears permanently.
 8. Repeat until the timer ends.
+9. Bonus point for getting treasure chest.
 
 ### Shark Warning
 
