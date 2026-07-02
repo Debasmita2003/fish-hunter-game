@@ -208,6 +208,7 @@ src/
 │   ├── seahorse.png
 |   ├── turtle.png
 |   ├── butterflyfish.png
+|   ├── bluetang.png
 │   ├── seaweed.png
 │   └── shark.png
 │
