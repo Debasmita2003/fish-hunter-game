@@ -64,6 +64,7 @@ Each creature behaves differently and rewards different points.
 | 🐙 Octopus | Random Wander | +75 |
 | 🐢Turtle | Random Wander | +45 |
 | 🐠 Butterflyfish | Random Wander | +75 |
+| 🐠 Bluetang | Random Wander | +75 |
 | 🦈 Shark | Patrol Movement | Game Over |
 
 ---
