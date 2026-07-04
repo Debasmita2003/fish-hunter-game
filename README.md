@@ -144,7 +144,7 @@ The game includes immersive audio:
 | Catch Turtle | +65 |
 | Catch Stingray | +55 |
 | Catch Butterflyfish | +45 |
-| Catch Bluetang | +85 |
+| Catch Bluetang | +60 |
 | Catch Treasure chest | +100 |
 | Catch Shark | Game Over |
 
